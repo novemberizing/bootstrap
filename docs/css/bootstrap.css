@@ -1,0 +1,6 @@
+input[type="range"].form-control.star + p> button {
+    background: none;
+    border: 0px solid #00000000;
+    padding: 0px;
+    margin: 0px 3px;
+}

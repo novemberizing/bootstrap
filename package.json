@@ -1,0 +1,29 @@
+{
+  "name": "@novemberizing/bootstrap",
+  "version": "0.0.6",
+  "description": "novemberizing's bootstrap plugin",
+  "main": "./src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha --recursive",
+    "build:dev": "webpack --config ./webpack/config.js",
+    "build:pro": "webpack --config ./webpack/production/config.js",
+    "prepublishOnly": "npm run build:pro"
+  },
+  "keywords": [
+    "novemberizing",
+    "bootstrap",
+    "plugin"
+  ],
+  "author": "novemberizing@gmail.com",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "@xmldom/xmldom": "^0.8.10",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "exports": "./src/index.js"
+}
