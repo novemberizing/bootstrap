@@ -287,12 +287,10 @@ export default class DateUI {
         this.#form = this.#calendar.querySelector("div.form");
         this.#body = this.#form.querySelector("div.form div.calendar-date tbody");
 
-
-        for(const c of this.#element.classList) {
-            console.log(c);
-            this.#input.classList.add(c);
+        for(const attribute of this.#element.attributes) {
+            this.#input.setAttribute(attribute.name, attribute.value);
         }
-        // this.#input.setAttribute("class", this.#element.className);
+        this.#input.setAttribute("type", "text");
 
         const up = this.#form.querySelector("div.calendar-header button.up");
         up.addEventListener("click", e => this.#up(e));
