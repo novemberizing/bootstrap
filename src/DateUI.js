@@ -158,26 +158,18 @@ export default class DateUI {
     #form = null;
     #body = null;
 
-    #toggle() {
+    #hide() {
         if(this.#form.classList.contains("show")) {
             this.#form.classList.replace("show", "hide");
-            const focus = new Date(this.#form.getAttribute("data-focus-date"));
-            const begin = novemberizing.date.week.begin(new Date(focus));
-            const title = this.#form.querySelector("div.calendar-header button.month");
-            title.textContent = novemberizing.date.month.str(focus);
-            this.#scorll(this.#body.querySelector(`tr[data-date="${begin}"]`));
-        } else if(this.#form.classList.contains("hide")) {
-            novemberizing.dom.children.remove(this.#body);
-
-            const focus = new Date(this.#form.getAttribute("data-focus-date"));
-            const begin = novemberizing.date.week.begin(new Date(focus));
-            const basis = this.#body.querySelector(`tr[data-date="${begin}"]`);
-            this.#createDate(begin, this.#body, focus.getMonth(), basis);
-            const title = this.#form.querySelector("div.calendar-header button.month");
-            title.textContent = novemberizing.date.month.str(focus);
-
-            this.#form.classList.replace("hide", "show");
+        } else {
+            this.#form.classList.add("hide");
         }
+        novemberizing.dom.children.remove(this.#body);
+        const focus = novemberizing.date.month.begin(new Date());
+        this.#form.setAttribute("data-focus-date", focus);
+        const begin = novemberizing.date.week.begin(new Date(focus));
+        const title = this.#form.querySelector("div.calendar-header button.month");
+        title.textContent = novemberizing.date.month.str(focus);
     }
 
     #createDate(start, body, month, basis = null) {
@@ -278,7 +270,12 @@ export default class DateUI {
         this.#scorll(this.#body.querySelector(`tr[data-date="${start}"]`));
     }
 
+    #position() {
+        const rect = this.#input.getBoundingClientRect();
 
+        this.#form.style.top = `${rect.top + rect.height + 5}px`;
+        this.#form.style.left = `${rect.left + 5}px`;
+    }
 
     #create(date) {
         const focus = novemberizing.date.month.begin(new Date(date));
@@ -313,6 +310,7 @@ export default class DateUI {
                 this.#form.classList.replace("show", "hide");
             } else {
                 this.#form.classList.replace("hide", "show");
+                this.#position();
             }
         });
         const erase = this.#form.querySelector("div.calendar-footer button.erase");
@@ -328,6 +326,7 @@ export default class DateUI {
                 this.#form.classList.replace("show", "hide");
             } else {
                 this.#form.classList.replace("hide", "show");
+                this.#position();
             }
         });
 
@@ -354,6 +353,7 @@ export default class DateUI {
                 title.textContent = novemberizing.date.month.str(focus);
     
                 this.#form.classList.replace("hide", "show");
+                this.#position();
             }
         });
 
@@ -375,6 +375,6 @@ export default class DateUI {
 
         this.#create(value ? new Date(value) : new Date());
 
-        // this.#element.style.display = "none";
+        this.#element.style.display = "none";
     }
 }
