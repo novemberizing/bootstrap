@@ -287,6 +287,13 @@ export default class DateUI {
         this.#form = this.#calendar.querySelector("div.form");
         this.#body = this.#form.querySelector("div.form div.calendar-date tbody");
 
+
+        for(const c of this.#element.classList) {
+            console.log(c);
+            this.#input.classList.add(c);
+        }
+        // this.#input.setAttribute("class", this.#element.className);
+
         const up = this.#form.querySelector("div.calendar-header button.up");
         up.addEventListener("click", e => this.#up(e));
 
@@ -375,6 +382,6 @@ export default class DateUI {
 
         this.#create(value ? new Date(value) : new Date());
 
-        this.#element.style.display = "none";
+        // this.#element.style.display = "none";
     }
 }

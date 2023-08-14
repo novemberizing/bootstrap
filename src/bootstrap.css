@@ -5,6 +5,13 @@ input[type="range"].form-control.star + p> button {
     margin: 0px 3px;
 }
 
+input[type="text"].form-control-sm + .input-group-text button {
+    --bs-btn-padding-y: 0.25rem;
+    --bs-btn-padding-x: 0.5rem;
+    --bs-btn-font-size: 0.875rem;
+    --bs-btn-border-radius: var(--bs-border-radius-sm);
+}
+
 input[type="date"] + div.calendar span {
     padding: 0px;
 }
