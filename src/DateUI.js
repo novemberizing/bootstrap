@@ -382,6 +382,6 @@ export default class DateUI {
 
         this.#create(value ? new Date(value) : new Date());
 
-        // this.#element.style.display = "none";
+        this.#element.style.display = "none";
     }
 }
