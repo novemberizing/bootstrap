@@ -273,7 +273,7 @@ export default class DateUI {
     #position() {
         const rect = this.#input.getBoundingClientRect();
 
-        this.#form.style.top = `${rect.top + rect.height + 5}px`;
+        this.#form.style.top = `${rect.top + rect.height + window.scrollY + 5}px`;
         this.#form.style.left = `${rect.left + 5}px`;
     }
 
