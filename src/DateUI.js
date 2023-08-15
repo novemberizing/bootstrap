@@ -291,6 +291,7 @@ export default class DateUI {
             this.#input.setAttribute(attribute.name, attribute.value);
         }
         this.#input.setAttribute("type", "text");
+        this.#input.removeAttribute("id");
 
         const up = this.#form.querySelector("div.calendar-header button.up");
         up.addEventListener("click", e => this.#up(e));
