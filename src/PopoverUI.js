@@ -1,5 +1,10 @@
 import novemberizing from "./novemberizing.js";
 
+/**
+ * TODO: onResize 적용
+ * TODO: remove Event Handler 적용
+ * TODO: 공통으로 사용하는 코드 함수화
+ */
 export default class PopoverUI {
     static #popovers = new Set();
 
