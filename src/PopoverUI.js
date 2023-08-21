@@ -1,0 +1,30 @@
+import novemberizing from "./novemberizing.js";
+
+export default class PopoverUI {
+    static on(event, id) {
+        const target = document.getElementById(id);
+        if(target.classList.contains('hide')) {
+            target.classList.replace('hide', 'show');
+        } else {
+            target.classList.add('show');
+        }
+        const button = novemberizing.dom.parent(event.target, "button");
+        const rect = button.getBoundingClientRect();
+        target.style.left = `${rect.left}px`;
+        target.style.top = `${rect.top - rect.height - 16}px`;
+    }
+    static toggle(event, id) {
+        const target = document.getElementById(id);
+        if(target.classList.contains('hide')) {
+            target.classList.replace('hide', 'show');
+        } else if(target.classList.contains('show')) {
+            target.classList.replace('show', 'hide');
+        } else {
+            target.classList.add('show');
+        }
+        const button = novemberizing.dom.parent(event.target, "button");
+        const rect = button.getBoundingClientRect();
+        target.style.left = `${rect.left}px`;
+        target.style.top = `${rect.top - rect.height - 16}px`;
+    }
+}

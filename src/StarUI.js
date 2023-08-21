@@ -1,21 +1,4 @@
-
-/** DOM */
-const novemberizing = {
-    dom: {
-        parent: (node, name) => {
-            while(node && node.nodeName && node.nodeName.toLowerCase() !== name) {
-                node = node.parentNode;
-            }
-            return node;
-        },
-        previous: (node, name) => {
-            while(node && node.nodeName.toLowerCase() !== name) {
-                node = node.previousElementSibling;
-            }
-            return node;
-        }
-    }
-}
+import novemberizing from "./novemberizing.js";
 
 export default class Star {
     static #root = /* html */ `<p class="d-inline-flex gap-1 star"></p>`;
@@ -123,4 +106,3 @@ export default class Star {
         this.#parent.insertBefore(root, this.#next);
     }
 }
-

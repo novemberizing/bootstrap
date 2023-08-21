@@ -63,3 +63,21 @@ div.calendar-date button.not-current {
     /** TODO: 상대적 칼라 계산하기 */
     color: var(--bs-gray-500);
 }
+
+div.popover-ui {
+    position: absolute;
+    background-color: #e0e0e0;
+    border: 1px solid #909090;
+    border-radius: 8px;
+    padding: 8px;
+    left: 0;
+    top: 0;
+}
+
+div.popover-ui.hide {
+    display: none;
+}
+
+div.popover-ui.show {
+    display: block;
+}

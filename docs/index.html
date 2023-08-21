@@ -16,13 +16,14 @@
         </style>
         <input type="date" class="form-control form-control-sm" placeholder="날짜를 입력하세요.">
         <input type="range" class="form-control star" min="0" max="5" value="2" defaultValue="3">
-        <script>
-        </script>
+        <div id="popover" class="popover-ui hide">
+            <button type="button" class="btn btn-secondary">First</button>
+            <button type="button" class="btn btn-secondary">Second</button>
+        </div>
+        <button type="button" class="btn btn-link" onClick="novemberizing.bootstrap.popover.toggle(event, 'popover')">Popover</button>
         
         <!-- DATE PICKER -->
         <!-- DATE MODAL -->
-
-        
         <!-- DATE MODAL -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@novemberizing/js@0.0.24/dist/main.js" type="module"></script>
