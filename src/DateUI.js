@@ -8,7 +8,7 @@ export default class DateUI {
             <button type="button" class="btn btn-link"><i class="fa-regular fa-calendar"></i></button>
         </span>
     </div>
-    <div class="form small hide" data-focus-date="">
+    <div class="form calendar-form-ui small hide" data-focus-date="">
         <div class="calendar-header d-flex justify-content-between mb-3">
             <button type="button" class="btn btn-light btn-sm text-start month fw-bold"></button>
             <div>

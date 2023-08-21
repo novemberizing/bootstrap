@@ -1,6 +1,6 @@
 {
   "name": "@novemberizing/bootstrap",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "novemberizing's bootstrap plugin",
   "main": "./src/index.js",
   "type": "module",
