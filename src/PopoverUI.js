@@ -25,6 +25,6 @@ export default class PopoverUI {
         const button = novemberizing.dom.parent(event.target, "button");
         const rect = button.getBoundingClientRect();
         target.style.left = `${rect.left}px`;
-        target.style.top = `${rect.top - rect.height - 16}px`;
+        target.style.top = `${rect.top + window.scrollY - rect.height - 16}px`;
     }
 }
