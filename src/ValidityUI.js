@@ -1,0 +1,24 @@
+
+export default class ValidityUI {
+    static check(element) {
+        if(element.validity) {
+            if(!element.validity.valid) {
+                if(element.classList.contains("is-valid")) {
+                    element.classList.replace("is-valid", "is-invalid");
+                } else {
+                    element.classList.add('is-invalid');
+                }
+                element.focus();
+    
+                return false;
+            }
+            
+            element.classList.remove("is-valid");
+            element.classList.remove("is-invalid");
+
+            return false;
+        }
+
+        throw new Error(); // TODO: Change ...
+    }
+}
