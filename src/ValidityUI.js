@@ -12,11 +12,11 @@ export default class ValidityUI {
     
                 return false;
             }
-            
+
             element.classList.remove("is-valid");
             element.classList.remove("is-invalid");
 
-            return false;
+            return true;
         }
 
         throw new Error(); // TODO: Change ...
