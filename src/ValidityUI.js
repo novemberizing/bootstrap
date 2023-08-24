@@ -1,12 +1,15 @@
 
 export default class ValidityUI {
-    static check(element) {
+    static check(element, condition = true) {
         if(element.validity) {
-            if(!element.validity.valid) {
+            if(!element.validity.valid || !condition) {
                 if(element.classList.contains("is-valid")) {
                     element.classList.replace("is-valid", "is-invalid");
                 } else {
                     element.classList.add('is-invalid');
+                }
+                if(condition === false) {
+                    element.value = "";
                 }
                 element.focus();
     
