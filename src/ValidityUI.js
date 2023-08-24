@@ -4,7 +4,7 @@ export default class ValidityUI {
         if(element.validity) {
             if(!element.validity.valid || !condition) {
                 if(condition === false) {
-                    element.setAttribute(value, "");
+                    element.setAttribute("value", "");
                 }
 
                 if(element.classList.contains("is-valid")) {
