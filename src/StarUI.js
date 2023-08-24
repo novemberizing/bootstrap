@@ -1,18 +1,18 @@
 import novemberizing from "./novemberizing.js";
 
-export default class Star {
-    static #root = /* html */ `<p class="d-inline-flex gap-1 star"></p>`;
-    static #button = /* html */ `<button type="button"></button>`;
-    static #press = /* html */ `<i class="fa-solid fa-star"></i>`;
-    static #unpress = /* html */ `<i class="fa-regular fa-star"></i>`;
+export default class StarUI {
+    static #root = `<p class="d-inline-flex gap-1 star"></p>`;
+    static #button = `<button type="button"></button>`;
+    static #press = `<i class="fa-solid fa-star"></i>`;
+    static #unpress = `<i class="fa-regular fa-star"></i>`;
 
     static {
         const parser = new DOMParser();
 
-        Star.#root = parser.parseFromString(Star.#root, "text/html").querySelector("p");
-        Star.#button = parser.parseFromString(Star.#button, "text/html").querySelector("button");
-        Star.#press = parser.parseFromString(Star.#press, "text/html").querySelector("i");
-        Star.#unpress = parser.parseFromString(Star.#unpress, "text/html").querySelector("i");
+        StarUI.#root = parser.parseFromString(StarUI.#root, "text/html").querySelector("p");
+        StarUI.#button = parser.parseFromString(StarUI.#button, "text/html").querySelector("button");
+        StarUI.#press = parser.parseFromString(StarUI.#press, "text/html").querySelector("i");
+        StarUI.#unpress = parser.parseFromString(StarUI.#unpress, "text/html").querySelector("i");
     }
 
     #parent = null;
@@ -26,22 +26,22 @@ export default class Star {
     static load(options) {
         const elements = document.querySelectorAll("input[type='range'].form-control.star");
         for(const element of elements) {
-            const o = new Star(element, typeof options === 'function' ? options(element) : options);
+            const o = new StarUI(element, typeof options === 'function' ? options(element) : options);
         }
     }
 
     static #createRoot() {
-        return Star.#root.cloneNode(true);
+        return StarUI.#root.cloneNode(true);
     }
 
     static #createBtn(value, press) {
-        const button = Star.#button.cloneNode(true);
+        const button = StarUI.#button.cloneNode(true);
         button.setAttribute("data-value", value + 1);
         button.setAttribute("aria-pressed", press);
         if(press) {
-            button.appendChild(Star.#press.cloneNode(true));
+            button.appendChild(StarUI.#press.cloneNode(true));
         } else {
-            button.appendChild(Star.#unpress.cloneNode(true));
+            button.appendChild(StarUI.#unpress.cloneNode(true));
         }
         button.addEventListener("click", e => {
             const button = novemberizing.dom.parent(e.target, "button");
@@ -95,10 +95,10 @@ export default class Star {
         this.#min = parseInt(this.#element.min);
         this.#def = parseInt(this.#element.defaultValue);
 
-        const root = Star.#createRoot();
+        const root = StarUI.#createRoot();
 
         for(let i = this.#min; i < this.#max; i++) {
-            const button = Star.#createBtn(i, i < this.#def);
+            const button = StarUI.#createBtn(i, i < this.#def);
             root.appendChild(button);
         }
 

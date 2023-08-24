@@ -1,7 +1,7 @@
 import novemberizing from "./novemberizing.js";
 
 export default class DateUI {
-    static #all = /* html */ `<div class="calendar">
+    static #all = `<div class="calendar">
     <div class="input-group">
         <input type="text" class="form-control" data-date="" disabled>
         <span class="input-group-text">

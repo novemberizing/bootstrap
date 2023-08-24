@@ -9,11 +9,13 @@ if(typeof window.novemberizing === 'undefined') {
         window.novemberizing.bootstrap = {
             Star: StarUI,
             Date: DateUI,
+
             popover: PopoverUI
         };
     } else {
         window.novemberizing.bootstrap.Star = StarUI;
         window.novemberizing.bootstrap.Date = DateUI;
+
         window.novemberizing.bootstrap.popover = PopoverUI;
     }
 }
