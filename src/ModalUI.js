@@ -10,6 +10,18 @@ export default class ModalUI {
         ModalUI.#modal.show();
     }
 
+    static hide(callback) {
+        if(ModalUI.#modal) {
+            if(typeof callback === "function") {
+                ModalUI.#modal._element.addEventListener("hidden.bs.modal", e => {
+                    ModalUI.#modal = null;
+                    callback();
+                }, { once: true });
+            }
+            ModalUI.#modal.hide();
+        }
+    }
+
     static show(modal) {
         if(ModalUI.#modal) {
             ModalUI.#modal.hide();
